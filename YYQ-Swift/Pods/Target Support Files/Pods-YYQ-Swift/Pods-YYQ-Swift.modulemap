@@ -1,0 +1,6 @@
+framework module Pods_YYQ_Swift {
+  umbrella header "Pods-YYQ-Swift-umbrella.h"
+
+  export *
+  module * { export * }
+}
