@@ -17,20 +17,26 @@ class ViewController: UIViewController {
         lab.backgroundColor = UIColor.red
         view.addSubview(lab)
         
-        let news = runningSum([1,1,1,1,1,1,1,1,1,1,1])
+        let news = kidsWithCandies([1,3,9], 4)
         print(news)
     }
     
-    //    runningSum[i] = sum(nums[0]…nums[i]) 。
-    
-    func runningSum(_ nums: [Int]) -> [Int] {
-        var newArr  = nums
-        for aa in nums.enumerated() {
-            newArr[aa.element] = nums[aa.element] + nums[nums.count - 1]
+    func kidsWithCandies(_ candies: [Int], _ extraCandies: Int) -> [Bool] {
+        var mix = 0
+        var boArr = [Bool]()
+        for i in 0 ..< candies.count {
+            if mix < candies[i]{
+                mix = candies[i]
+            }
         }
-        
-        return newArr
+        for i in 0 ..< candies.count {
+            if candies[i] + extraCandies >= mix {
+                boArr.append(true)
+            }else{
+                boArr.append(false)
+            }
+        }
+        return boArr
     }
-    
 }
 
