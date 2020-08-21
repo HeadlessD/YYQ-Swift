@@ -1,17 +1,18 @@
 //
-//  ViewController.swift
+//  DHomeViewController.swift
 //  YYQ-Swift
 //
-//  Created by 豆凯强 on 2020/7/23.
+//  Created by 豆凯强 on 2020/8/21.
 //  Copyright © 2020 dkq. All rights reserved.
 //
 
 import UIKit
 
-class ViewController: UIViewController {
-    
+class DHomeViewController: DPageViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-}
 
+    }
+
+}

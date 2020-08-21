@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import SnapKit
+import Then
+import Reusable
+import Kingfisher
 
 class DBaseViewController: UIViewController {
     
@@ -15,7 +19,6 @@ class DBaseViewController: UIViewController {
         
         view.backgroundColor = UIColor.background
         UIScrollView.appearance().contentInsetAdjustmentBehavior = .never
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -37,6 +40,7 @@ class DBaseViewController: UIViewController {
             }
         }
     }
+    
     @objc func pressBack() {
         navigationController?.popViewController(animated: true)
     }
