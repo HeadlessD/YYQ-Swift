@@ -12,13 +12,19 @@ import Then
 import Reusable
 import Kingfisher
 
-class DBaseViewController: UIViewController {
+class DBaseViewController:  UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         view.backgroundColor = UIColor.background
-        UIScrollView.appearance().contentInsetAdjustmentBehavior = .never
+        if #available(iOS 11.0, *) {
+            UIScrollView.appearance().contentInsetAdjustmentBehavior = .never
+        } else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
+        
+        configUI()
     }
     
     override func viewWillAppear(_ animated: Bool) {

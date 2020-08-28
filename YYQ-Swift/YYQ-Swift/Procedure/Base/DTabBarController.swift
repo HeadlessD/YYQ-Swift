@@ -24,7 +24,7 @@ class DTabBarController: UITabBarController {
         let titles = ["首页","分类","书架","我的"]
         let imgs = ["tab_home","tab_class","tab_book","tab_mine"]
         let selImgs = ["tab_home_S","tab_class_S","tab_book_S","tab_mine_S"]
-        
+
         addChildViewController(childVCS: VCS, titles: titles, images: imgs, selectImages: selImgs)
     }
     
@@ -32,7 +32,8 @@ class DTabBarController: UITabBarController {
         for i in 0 ..< childVCS.count {
             let vc =  childVCS[i]
             vc.title = titles[i]
-            vc.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: images[i]) , selectedImage: UIImage(named: selectImages[i]))
+            vc.tabBarItem = UITabBarItem(title: nil, image: UIImage(named: images[i])?.withRenderingMode(.alwaysOriginal) , selectedImage: UIImage(named: selectImages[i])?.withRenderingMode(.alwaysOriginal))
+            
             if UIDevice.current.userInterfaceIdiom == .phone {
                 vc.tabBarItem.imageInsets = UIEdgeInsets(top: 6, left: 0, bottom: -6, right: 0)
             }
@@ -41,11 +42,11 @@ class DTabBarController: UITabBarController {
     }
 }
 
-//extension DTabBarController{
-//    override var preferredStatusBarStyle: UIStatusBarStyle{
-//        guard let select = selectedViewController else {
-//            return .lightContent
-//        }
-//        return select.preferredStatusBarStyle
-//    }
-//}
+extension DTabBarController{
+    override var preferredStatusBarStyle: UIStatusBarStyle{
+        guard let select = selectedViewController else {
+            return .lightContent
+        }
+        return select.preferredStatusBarStyle
+    }
+}
